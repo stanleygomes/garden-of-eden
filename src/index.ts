@@ -5,6 +5,7 @@ import swagger from '@/config/swagger'
 import { InternalServerError } from '@/exceptions/InternalServerError'
 import { logger } from '@/config/logger'
 import { config } from '@/config/app'
+import routes from '@/router'
 
 const getServerPort = (): number => {
   const port = config.server.port
@@ -18,14 +19,12 @@ const getServerPort = (): number => {
 
 const runServer = () => {
   const server = fastify()
+
   server.register(swagger)
 
-  server.get('/ping', async (request, reply) => {
-    return 'pong\n'
-  })
+  routes.forEach(route => server.register(route))
 
   const port = getServerPort()
-
   server.listen({ port }, (err, address) => {
     if (err) {
       logger.error(err)
