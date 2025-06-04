@@ -3,6 +3,7 @@ import 'dotenv/config'
 import fastify from 'fastify'
 import swagger from './config/swagger'
 import { InternalServerError } from './exceptions/InternalServerError'
+import { logger } from './config/logger'
 
 const getServerPort = (): number => {
   const port = process.env.SERVER_PORT
@@ -26,11 +27,11 @@ const runServer = () => {
 
   server.listen({ port }, (err, address) => {
     if (err) {
-      console.error(err)
-      process.exit(1)
+      logger.error(err)
+      throw new InternalServerError('Unable to start. Server error ocurred!')
     }
 
-    console.log(`Server listening at ${address}`)
+    logger.info(`Server listening at ${address}`)
   })
 }
 
