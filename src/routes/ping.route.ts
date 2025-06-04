@@ -1,7 +1,8 @@
 import { FastifyInstance } from 'fastify'
+import { config } from '../config/app'
 
 export default async function pingRoutes(server: FastifyInstance) {
-  server.get('/ping', {
+  server.get(`${config.api.basePath}/ping`, {
     schema: {
       description: 'Ping route',
       tags: ['Health'],
