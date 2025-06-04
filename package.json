@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "start": "node build/index.js"
+    "start": "node -r tsconfig-paths/register build/index.js"
   },
   "keywords": [],
   "author": "",
@@ -14,7 +14,8 @@
     "@fastify/swagger": "^9.5.1",
     "@fastify/swagger-ui": "^5.2.3",
     "dotenv": "^16.5.0",
-    "fastify": "^5.3.3"
+    "fastify": "^5.3.3",
+    "tsconfig-paths": "^4.2.0"
   },
   "devDependencies": {
     "@types/node": "^22.15.29",
