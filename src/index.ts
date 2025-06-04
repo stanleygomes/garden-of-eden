@@ -1,11 +1,11 @@
 import 'dotenv/config'
 
 import fastify from 'fastify'
-import swagger from '@/config/swagger'
-import { InternalServerError } from '@/exceptions/InternalServerError'
-import { logger } from '@/config/logger'
-import { config } from '@/config/app'
-import routes from '@/router'
+import swagger from './config/swagger'
+import { InternalServerError } from './exceptions/InternalServerError'
+import { logger } from './config/logger'
+import { config } from './config/app'
+import routes from './router'
 
 const getServerPort = (): number => {
   const port = config.server.port
