@@ -6,6 +6,8 @@ Learning - Authentication &amp; Autorization
 
 ## Technology Choices
 
+This is a MVC project.
+
 Node.js was chosen for this application for three main reasons:
 
 - easy adoption by developers;
@@ -39,8 +41,11 @@ The MongoDB database is used for fast and efficient access to user data and perm
 
 ## Deployment
 
-
 TODO
+
+## Usage
+
+You can access and use the APIs via Swagger, wich is configured in `/docs` endpoint.
 
 
 ## Acknowledgments
