@@ -4,9 +4,10 @@ import fastify from 'fastify'
 import swagger from './config/swagger'
 import { InternalServerError } from './exceptions/InternalServerError'
 import { logger } from './config/logger'
+import { config } from './config/app'
 
 const getServerPort = (): number => {
-  const port = process.env.SERVER_PORT
+  const port = config.server.port
 
   if (!port) {
     throw new InternalServerError('Unable to start. Server port was not found in env file!')
