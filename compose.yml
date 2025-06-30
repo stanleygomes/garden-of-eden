@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: docker.io/library/mongo:8.0.10
+    ports:
+      - 27017:27017
+    container_name: app-mongodb
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: app
+      MONGO_INITDB_ROOT_PASSWORD: cfebed00-2000-4f62-ba4c-840d3d0dfcd2
+    volumes:
+      - ./temp/data/mongodb:/data/db
+    networks:
+      - mongo-net
+
+networks:
+  mongo-net:
